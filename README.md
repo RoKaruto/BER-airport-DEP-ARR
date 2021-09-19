@@ -1,4 +1,4 @@
-# BER-airport-DEP-ARR
+# BER Airport DEP & ARR
 ## Arrivals and Departures at the BER airport
 
 #### DATA MINING
