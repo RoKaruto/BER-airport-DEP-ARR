@@ -5,6 +5,7 @@ from selenium import webdriver
 from selenium import common
 import time
 from flightdata import FlightData
+from ch405_t00ls.ch405_tools import pretty_date
 
 WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
@@ -22,80 +23,6 @@ def date_to_ddmmyyyy(dat="1981_01_24", separator="."):
            f'{(str(int(dat.split("_")[0]))).zfill(2)}'
 
 
-def pretty_date(user_date: str = "24.01.1981", date_pattern: str = "DD.MM.YYYY", dt_object: [bool] = False):
-    """takes user_date as string (date separators optional) and (optional) date_pattern, returns a string with
-       fully spelled date, e.g. 24.01.1981 -> 24th of January 1981 (default value) or
-       (04/02/2010, MM-DD-YYYY) -> 2nd of April 2010 or
-       (20210718, YYYYMMDD) -> 18th of June 2021. If dt_object = True (default False),
-       a tuple is returned -> return_date[0] is string-object of date, return_date[1] datetime-object of user_date.
-       Returns f"Invalid Date: {this_date}" if date does not exist or
-       f"Invalid Date: {this_date} (check date or pattern)" if user_date and date_pattern are mismatching in length
-       """
-    if len(user_date) != len(date_pattern):
-        return f"Invalid Date: {user_date} and {date_pattern} pattern mismatch"
-    if len(user_date) == 8:     # no separator
-        new_d = ""              # new date
-        new_p = ""              # new pattern
-        for _ in range(0, len(date_pattern) - 1):
-            new_d += user_date[_]
-            new_p += date_pattern[_]
-            if date_pattern[_ + 1] != date_pattern[_]:      # if a characters differs from the previous, a "." will...
-                new_d += "."                                # be inserted as separator
-                new_p += "."
-        new_d += user_date[-1]      # add last position in date string
-        new_p += date_pattern[-1]   # add last position in order string
-        user_date = new_d           # overwrite user_date for further use in function
-        date_pattern = new_p        # overwrite user_date for further use in function
-
-    # overwrite user_date separator with "."
-    separator = ""
-    for c in user_date:
-        if not c.isdigit():
-            separator = c
-            break
-    user_date = user_date.replace(separator, ".")
-
-    # overwrite date_pattern separator with "."
-    separator = ""
-    for c in date_pattern:
-        if not c.isalpha():
-            separator = c
-            break
-    date_pattern = date_pattern.replace(separator, ".")
-
-    date_parts = dict(zip(date_pattern.split("."), user_date.split(".")))  # dict of date parts to reassign order
-    this_date = date_parts["DD"] + "." + date_parts["MM"] + "." + date_parts["YYYY"]
-
-    try:
-        dt.datetime.strptime(this_date, "%d.%m.%Y")
-    except ValueError:
-        return f"Invalid Date: {this_date} (check date or pattern)"
-    else:
-        return_date = ""            # new string, which will be returned at the end
-        if this_date[1] == "1":
-            if this_date[0] == "1":
-                return_date += f"{str(int(this_date[:2]))}th of "       # str(int(...)) to remove possible leading zero
-            else:
-                return_date += f"{str(int(this_date[:2]))}st of "
-        elif this_date[1] == "2":
-            if this_date[0] == "1":
-                return_date += f"{str(int(this_date[:2]))}th of "
-            else:
-                return_date += f"{str(int(this_date[:2]))}nd of "
-        elif this_date[1] == "3":
-            if this_date[0] == "1":
-                return_date += f"{str(int(this_date[:2]))}th of "
-            else:
-                return_date += f"{str(int(this_date[:2]))}rd of "
-        else:
-            return_date += f"{str(int(this_date[:2]))}th of "
-        return_date += dt.datetime.strftime(dt.datetime.strptime(this_date[3:5], "%m"), "%B") + " " + this_date[6:]
-        if dt_object:
-            return return_date, dt.datetime(int(date_parts["YYYY"]), int(date_parts["MM"]), int(date_parts["DD"]))
-        else:
-            return return_date
-
-
 if __name__ == "__main__":
 
     curr_date = (dt.datetime.now() - dt.timedelta(1)).strftime("%Y_%m_%d")
@@ -110,7 +37,7 @@ if __name__ == "__main__":
               f"to flight_data.csv, please check file.")
     else:
         print(f"Last date in flight_data.csv: {pretty_date(last_date, date_pattern='YYYY_MM_DD')}.\n\n")
-        chrome_driver_path = "C:/Users/roman/Python/chromedriver/chromedriver_win32/chromedriver.exe"
+        chrome_driver_path = ""   # insert filepath to chromedriver.exe here
         driver = webdriver.Chrome(executable_path=chrome_driver_path)
 
         #   ################
