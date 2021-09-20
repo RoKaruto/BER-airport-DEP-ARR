@@ -7,16 +7,6 @@ from eval_pd import date_to_ddmmyyyy
 app = FastAPI()
 
 
-@app.get("/")
-def home():
-    return {"Data": "Test"}
-
-
-@app.get("/path_example/{path_data}")
-def path_example(path_data: str = Path(None, description="This is an example of how to use paths from home/")):
-    return {"data": path_data}
-
-
 @app.get("/search-flight")
 def search_flight(*,  # * positional arg to avoid python error - non-optional arg followed by optional (= None -default)
                   flight_date: Optional[str] = Query(None, description="Date must be in format YYYY_MM_DD"),
