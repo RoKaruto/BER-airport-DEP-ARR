@@ -14,3 +14,12 @@ Using the **pandas** module in **python**, flights can be *filtered* by timefram
 
 ![Demo Title Page](https://github.com/RoKaruto/BER-airport-DEP-ARR/blob/main/demo%20title.png "Title Page")
 ![Demo Weekly Canx Page](https://github.com/RoKaruto/BER-airport-DEP-ARR/blob/main/demo%20canx.png "Cancellations by Weekday")
+
+---
+
+#### API implementaion
+Using **FastAPI**, this is a simple API implementation searching on a local server for flights specified by date, flight number, departure or arrival, scheduled time, status, airport (destination/origin), airport IATA code, airline, airline code, codeshare (as boolean) and/or weekday. If only one result matches the search, this detailed flight information is returned, otherwise a list of tuples, containing flight date and number (identifying one and only one flight, can be used in another api request) and flight status will be returned.
+                  
+![flightsearch_api1](https://github.com/RoKaruto/BER-airport-DEP-ARR/blob/main/flightsearch_api1.png "several flights matching serach criteria")
+![flightsearch_api2](https://github.com/RoKaruto/BER-airport-DEP-ARR/blob/main/flightsearch_api2.png "exactly one flight matching serach criteria")
+
