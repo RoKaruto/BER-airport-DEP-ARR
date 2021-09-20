@@ -1,5 +1,5 @@
 # BER Airport DEP & ARR
-## Arrivals and Departures at the BER airport
+## Departures and Arrivals at the BER airport
 
 #### DATA MINING
 This is my second _data mining_ project tracking all departures and arrivals at the Willy-Brandt-Airport BER in Berlin using **python** and **selenium**. 
