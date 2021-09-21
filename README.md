@@ -3,7 +3,7 @@
 
 #### DATA MINING
 This is my second _data mining_ project tracking all departures and arrivals at the Willy-Brandt-Airport BER in Berlin using **python** and **selenium**. 
-The data is taken from the [Departures and Arrivals](https://ber.berlin-airport.de/de/fliegen/abfluege-ankuenfte.html "BER Arrivals and Departures") provided by the airport's homepage. The data collected will be saved in csv-format for further usage.
+The data is taken from the [Departures and Arrivals website](https://ber.berlin-airport.de/de/fliegen/abfluege-ankuenfte.html "BER Arrivals and Departures") provided by the airport's homepage. The data collected will be saved in csv-format for further usage.
 
 ![Demo CSV Data](https://github.com/RoKaruto/BER-airport-DEP-ARR/blob/main/BER%20ARR%20CSV%20Example.png "csv data")
 
