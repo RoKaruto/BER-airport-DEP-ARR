@@ -77,7 +77,7 @@ def search_flight(*,  # * positional arg to avoid python error - non-optional ar
         if weekday:
             lines = [line for line in lines if line.split(",")[12].strip() == weekday]
 
-        # create a the from the now reduced data from the csv file
+        # create a list from the now reduced data from the csv file
         for line in lines:
             flight_list.append((line.split(",")[0], line.split(",")[3], line.split(",")[5]))
         if flight_list:
