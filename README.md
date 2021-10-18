@@ -12,7 +12,7 @@ The data is taken from the [Departures and Arrivals website](https://ber.berlin-
 #### DATA VISUALIZATION
 Using the **pandas** module in **python**, flights can be *filtered* by timeframe, departures and/or arrivals, airlines, destinations and weekdays to *create plots* and *tables* for number of operations by airline / destination, operations by weekday, cancellations (airline, destination, weekday) and punctuality (airline, destination, weekday - only for arrivals, as relevant information provided by the website for departures is insufficient). In the end, an overview of all airline and airports with their codes will be attached. All data will be saved in a **local HTML**-file created alongside running the code with the possibility of creating a **PDF-file** from this HTML file.
 
-[All flights to Italy in July and August 2021](https://github.com/RoKaruto/BER-airport-DEP-ARR/blob/main/20210701-20210831-ARR_from_Italy_by_EJU-DS-FR-EW-SDR.pdf "PDF Example") \
+[All arrivals from Italy in July and August 2021](https://github.com/RoKaruto/BER-airport-DEP-ARR/blob/main/20210701-20210831-ARR_from_Italy_by_EJU-DS-FR-EW-SDR.pdf "PDF Example") \
 [All arrivals August 2021](https://github.com/RoKaruto/BER-airport-DEP-ARR/blob/main/20210801-20210831-ARR.pdf "PDF Example")
 
 ![Demo Title Page](https://github.com/RoKaruto/BER-airport-DEP-ARR/blob/main/demo%20title.png "Title Page")
