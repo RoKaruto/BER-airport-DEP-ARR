@@ -21,7 +21,7 @@ Using the **pandas** module in **python**, flights can be *filtered* by timefram
 ---
 
 #### API implementaion
-Using **FastAPI**, this is a simple API implementation searching on a local server for flights specified by date, flight number, departure or arrival, scheduled time, status, airport (destination/origin), airport IATA code, airline, airline code, codeshare (as boolean) and/or weekday. If only one result matches the search, all details of this specific flight is returned in a json format, otherwise a list is returned, containing flight date and number (identifying one and only one flight for specified search in another api request) and flight status.
+Using **FastAPI**, this is a simple API implementation searching on a local server for flights specified by date, flight number, departure or arrival, scheduled time, status, airport (destination/origin), airport IATA code, airline, airline code, codeshare (as boolean) and/or weekday. If only one result matches the search, all details of this specific flight are returned in json format, otherwise the returned json contains a list, including flight date and number (identifying one and only one flight for specified search in another api request) and flight status of all flights matching the search criteria.
                   
 ![flightsearch_api1](https://github.com/RoKaruto/BER-airport-DEP-ARR/blob/main/flightsearch_api1.png "several flights matching serach criteria")
 ![flightsearch_api2](https://github.com/RoKaruto/BER-airport-DEP-ARR/blob/main/flightsearch_api2.png "exactly one flight matching serach criteria")
